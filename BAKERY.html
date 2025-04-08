@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Baking Shop</title>
+    <link rel="icon" type="image/x-icon" href="nlogo.jpg">
+    <style>
+body {
+  background-image: url('https://png.pngtree.com/background/20210715/original/pngtree-hand-drawn-bakery-dessert-bread-lineart-background-picture-image_1303775.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+}
+</style>
+
+    <style>
+
+        body {
+            font-family: Times New Roman, serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f5ebe0;
+            color: #4b2e2e;
+        }
+
+        header {
+            background-color: #8d6e63;
+            color: #fff;
+            padding: 1rem;
+            text-align: center;
+        }
+
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #6d4c41;
+            padding: 0.5rem 0;
+        }
+
+        nav a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 1rem;
+            font-weight: bold;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        main {
+            padding: 2rem;
+            text-align: center;
+        }
+
+        section {
+            margin: 2rem 0;
+        }
+
+        .categories, .about, .custom-orders , .contact, .account {
+            margin-top: 2rem;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        input, textarea, button {
+            padding: 0.5rem;
+            border: 1px solid #8d6e63;
+            border-radius: 5px;
+            width: 80%;
+            max-width: 400px;
+        }
+
+        button {
+            background-color: #8d6e63;
+            color: white;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #6d4c41;
+        }
+
+        footer {
+            background-color: #6d4c41;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .image-banner {
+            width: 100%;
+            max-height: 400px;
+            object-fit: cover;
+        }
+
+        .category-item {
+            display: inline-block;
+            margin: 1rem;
+            text-align: center;
+        }
+
+        .category-item img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .category-item a {
+            display: block;
+            margin-top: 0.5rem;
+            color: #4b2e2e;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .category-item a:hover {
+            text-decoration: underline;
+        }
+
+        .social-links a {
+            color: #4b2e2e;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 1rem;
+        }
+
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+    </style>
+
+    <script>
+        function showSection(sectionId) {
+            const sections = document.querySelectorAll('section');
+            sections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.remove('hidden');
+                } else {
+                    section.classList.add('hidden');
+                }
+            });
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            showSection('home');
+            const navLinks = document.querySelectorAll('nav a');
+            navLinks.forEach(link => {
+                link.addEventListener('click', event => {
+                    event.preventDefault();
+                    const targetId = event.target.getAttribute('href').substring(1);
+                    showSection(targetId);
+                });
+            });
+        });
+
+    </script>
+</head>
+<body>
+    <header>
+        <h1>Sen Sweet Treat's</h1>
+    </header>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#categories">Categories</a>
+        <a href="#about">About Us</a>
+        <a href="#custom-orders">Custom Orders</a>
+        <a href="#contact">Contact Us</a>
+    </nav>
+    <main>
+       <section id="home">
+        </section>
+        <section id="home">
+            <br>
+            <h1>Welcome to SweetSen Treats!</h1>
+            <p>Delicious baked goods for every occasion.</p>
+        </section>
+
+        <section id="categories" class="categories hidden">
+    <h2>Categories:</h2>
+    <div class="category-item" onclick="showItems('cakes')">
+        <img src="cakes.jpg" alt="Cakes">
+        <a href="javascript:void(0)">Cakes</a>
+    </div>
+    <div class="category-item" onclick="showItems('pastries')">
+        <img src="pastries.jpg" alt="Pastries">
+        <a href="javascript:void(0)">Pastries</a>
+    </div>
+    <div class="category-item" onclick="showItems('bread')">
+        <img src="bread.jpg" alt="Bread">
+        <a href="javascript:void(0)">Bread</a>
+    </div>
+    <div class="category-item" onclick="showItems('cookies')">
+        <img src="cookies.jpg" alt="Cookies">
+        <a href="javascript:void(0)">Cookies</a>
+    </div>
+    <div class="category-item" onclick="showItems('brownies')">
+        <img src="brownies.jpg" alt="Brownies">
+        <a href="javascript:void(0)">Brownies</a>
+    </div>
+</section>
+
+<section id="cakes" class="hidden">
+    <h3>Cakes</h3>
+    <div class="item">
+        <img src="choco.jpg" alt="Cake 2">
+        <p>Chocolate Cake</p>
+        <p class="price">₱700.00</p>
+    </div>
+    <div class="item">
+        <img src="mocha.jpg" alt="Cake 3">
+        <p>Mocha Cake</p>
+        <p class="price">₱750.00</p>
+    </div>
+    <div class="item">
+        <img src="fruit.jpg" alt="Cake 4">
+        <p>Fruit Cake</p>
+        <p class="price">₱650.00</p>
+    </div>
+    <div class="item">
+        <img src="cheese.jpg" alt="Cake 5">
+        <p>Cheesecake</p>
+        <p class="price">₱850.00</p>
+    </div>
+</section>
+
+<section id="pastries" class="hidden">
+    <h3>Pastries</h3>
+    <div class="item">
+        <img src="croissant.jpg" alt="Pastry 1">
+        <p>Croissant</p>
+        <p class="price">₱80.00</p>
+    </div>
+    <div class="item">
+        <img src="eclair.jpg" alt="Pastry 2">
+        <p>Eclair</p>
+        <p class="price">₱90.00</p>
+    </div>
+    <div class="item">
+        <img src="danish.jpg" alt="Pastry 3">
+        <p>Danish</p>
+        <p class="price">₱85.00</p>
+    </div>
+    <div class="item">
+        <img src="churros.jpg" alt="Pastry 5">
+        <p>Churros</p>
+        <p class="price">₱75.00</p>
+    </div>
+</section>
+
+<section id="bread" class="hidden">
+    <h3>Breads</h3>
+    <div class="item">
+        <img src="sourdough.jpg" alt="Bread 1">
+        <p>Sourdough Bread</p>
+        <p class="price">₱250.00</p>
+    </div>
+    <div class="item">
+        <img src="baguette.jpg" alt="Bread 2">
+        <p>Baguette</p>
+        <p class="price">₱180.00</p>
+    </div>
+    <div class="item">
+        <img src="whole wheat.jpg" alt="Bread 3">
+        <p>Whole Wheat Bread</p>
+        <p class="price">₱200.00</p>
+    </div>
+    <div class="item">
+        <img src="focaccia.jpg" alt="Bread 5">
+        <p>Focaccia</p>
+        <p class="price">₱220.00</p>
+    </div>
+</section>
+
+<section id="cookies" class="hidden">
+    <h3>Cookies</h3>
+    <div class="item">
+        <img src="chewy molasses.jpg" alt="Cookie 1">
+        <p>Chewy Molasses Cookies</p>
+         <p class="price">₱50.00</p>
+    </div>
+    <div class="item">
+        <img src="oatmeal raisin.jpg" alt="Cookie 2">
+        <p>Oatmeal Raisin Cookie</p>
+         <p class="price">₱55.00</p>
+    </div>
+    <div class="item">
+        <img src="peanut butter.jpg" alt="Cookie 3">
+        <p>Peanut Butter Cookie</p>
+         <p class="price">₱60.00</p>
+    </div>
+    <div class="item">
+        <img src="sugar cookie.jpg" alt="Cookie 4">
+        <p>Sugar Cookie</p>
+         <p class="price">₱45.00</p>
+    </div>
+</section>
+
+<section id="brownies" class="hidden">
+    <h3>Brownies</h3>
+    <div class="item">
+        <img src="fudge.jpg" alt="Brownie 2">
+        <p>Fudge Brownie</p>
+        <p class="price">₱80.00</p>
+    </div>
+    <div class="item">
+        <img src="caramel.jpg" alt="Brownie 3">
+        <p>Caramel Brownie</p>
+        <p class="price">₱90.00</p>
+    </div>
+    <div class="item">
+        <img src="nut.jpg" alt="Brownie 4">
+        <p>Nut Brownie</p>
+        <p class="price">₱85.00</p>
+    </div>
+    <div class="item">
+        <img src="cheesecake.jpg" alt="Brownie 5">
+        <p>Cheesecake Brownie</p>
+        <p class="price">₱100.00</p>
+    </div>
+</section>
+
+<script>
+    function showItems(category) {
+        const allSections = document.querySelectorAll('section');
+        allSections.forEach(section => {
+            section.classList.add('hidden');
+        });
+        
+        const activeSection = document.getElementById(category);
+        activeSection.classList.remove('hidden');
+    }
+</script>
+
+        <section id="about" class="about hidden">
+            <h2>About Us</h2>
+            <p><strong>History:</strong> Learn about our journey and passion for baking.</p>
+            <p><strong>Commitment:</strong> Quality, flavor, and customer satisfaction are our priorities.</p>
+        </section>
+
+        
+    <section id="custom-orders">
+        <h2>Custom Orders</h2>
+        <p>Request a quote or customize your cake:</p>
+        <form id="customOrderForm">
+            <input type="text" id="customName" placeholder="Your Name" required>
+            <input type="email" id="customEmail" placeholder="Your Email" required>
+            <textarea id="customDetails" placeholder="Custom Order Details" required></textarea>
+            <button type="submit">Submit</button>
+        </form>
+        <p id="customOrderMessage" class="hidden">
+            ✅ Thank you! We have received your request.
+        </p>
+    </section>
+    </section>
+
+    <section id="contact" class="contact">
+    <h2>Contact Us</h2>
+    <form id="contactForm">
+        <input type="text" id="contactName" placeholder="Name" required>
+        <input type="email" id="contactEmail" placeholder="Email" required>
+        <textarea id="contactMessage" placeholder="Your Message" required></textarea>
+        <button type="submit">Send</button>
+    </form>
+
+    <div id="contactSuccess" class="hidden">
+        <p class="success-message">✅ Thank you! Your message has been sent.</p>
+        <button onclick="goBackHome()">Back to Home</button>
+    </div>
+
+    <div id="socialMediaLinks">
+        <h3>Follow Us</h3>
+        <a href="https://facebook.com" target="_blank">Facebook</a>
+        <a href="https://twitter.com" target="_blank">Twitter</a>
+        <a href="https://instagram.com" target="_blank">Instagram</a>
+    </div>
+</section>
+</section>
+    </main>
+    
+    <script>
+        document.getElementById("customOrderForm").addEventListener("submit", function(event) {
+            event.preventDefault()
+
+            document.getElementById("customOrderMessage").classList.remove("hidden");
+
+            
+            alert("Your custom order has been submitted! We will contact you soon.");
+
+            document.getElementById("customName").value = "";
+            document.getElementById("customEmail").value = "";
+            document.getElementById("customDetails").value = "";
+        });
+    </script>
+    <script>
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+        event.preventDefault(); 
+        
+        const form = document.getElementById("contactForm");
+        const successMessage = document.getElementById("contactSuccess");
+
+       
+        form.classList.add("hidden");
+        successMessage.classList.remove("hidden");
+    });
+
+    function goBackHome() {
+    window.location.href = "file:///C:/Users/DROW%20RANGER/Desktop/JANSSEN%20FOLDER/MANAHAN_2B%20-%20Copy/JANSSEN/BAKERY.html";
+}
+</script>
+
+    <footer>
+        <p>&copy; PROGRAM AND DEVELOP BY: JANSSEN JEEI M. MANAHAN</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sen Sweet Treat's - Login</title>
+    <link rel="icon" type="image/x-icon" href="nlogo.jpg">
+    <style>
+        body {
+            background-color: #f5ebe0; 
+            font-family: Times New Roman, serif;
+            margin: 0;
+            padding: 0;
+            background-image: url('https://static.vecteezy.com/system/resources/previews/011/500/766/non_2x/doodle-bakery-products-food-seamless-pattern-vector.jpg');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+        }
+        header {
+            background-color: #8d6e63; 
+            color: white;
+            padding: 15px 0;
+            text-align: center;
+        }
+        nav {
+            background-color: #ff66b2; 
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 10px 20px;
+            margin: 0 10px;
+            font-weight: bold;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        nav a:hover {
+            background-color: #483C32; 
+        }
+        main {
+            padding: 20px;
+            color: white;
+            height: 100vh; 
+        }
+        footer {
+            background-color:#8d6e63;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+        .container {
+            width: 300px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: rgba(166, 123, 91, 0.9);
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px 0;
+            border: none;
+            border-radius: 5px;
+        }
+        button {
+            background-color:#483C32;
+            color: white;
+            padding: 12px 25px;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #D2B48C;
+        }
+        #message {
+            color: yellow;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Sen Sweet Treat's</h1>
+</header>
+<main>
+    <div class="container">
+        <h2>Login</h2>
+        <input type="text" id="username" placeholder="Username" required>
+        <input type="password" id="password" placeholder="Password" required>
+        <button onclick="validateLogin()">Login</button>
+        <p id="message"></p>
+    </div>
+</main>
+
+<footer>
+    <p>PROGRAM AND DEVELOPED BY JANSSEN JEEI M. MANAHAN</p>
+</footer>
+
+<script>
+    let attempts = 0;
+    let lockout = false;
+    const correctUsername = "admin123";
+    const correctPassword = "admin123";
+
+    function validateLogin() {
+        if (lockout) return;
+        
+        let username = document.getElementById("username").value;
+        let password = document.getElementById("password").value;
+        let message = document.getElementById("message");
+        
+        if (username === correctUsername && password === correctPassword) {
+            message.style.color = "green";
+            message.innerText = "Login successful!";
+        window.location.href = 'file:///C:/files/LD1_FINALS_MANAHAN/BAKERY.html';
+        } else {
+            attempts++;
+            if (attempts >= 2) {
+                lockout = true;
+                message.innerText = "Too many failed attempts. Please wait 10 seconds.";
+                setTimeout(() => {
+                    attempts = 0;
+                    lockout = false;
+                    message.innerText = "You can try again now.";
+                    document.getElementById("password").value = "";
+                }, 10000);
+            } else {
+                message.innerText = "Incorrect username or password. Try again.";
+            }
+        }
+    }
+</script>
+
+</body>
+</html>
